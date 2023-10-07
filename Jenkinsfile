@@ -1,13 +1,16 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:16' // Use Node 16 Docker image as the build agent
-        }
-    }
+    agent any
+
     stages {
         stage('Build') {
             steps {
-                sh 'npm install --save' // Run npm install --save
+                script {
+                    // Pull the Node 16 Docker image
+                    docker.image('node:16').inside {
+                        // Run npm install --save
+                        sh 'npm install --save'
+                    }
+                }
             }
         }
     }
