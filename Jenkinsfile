@@ -4,12 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                // Pull the Node 16 Docker image and run npm install
                 script {
-                    // Pull the Node 16 Docker image
-                    docker.image('node:16').inside {
-                        // Run npm install --save
-                        sh 'npm install --save'
-                    }
+                    docker.image('node:16').run('npm install --save')
                 }
             }
         }
