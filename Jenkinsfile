@@ -8,15 +8,10 @@ pipeline {
         sh 'node --version'
       }
     }
-  }
-  stages {
-        stage('Build') { 
-            steps {
-                sh 'npm install' 
-            }
-        }
+    stage('Build') {
+      steps {
+        sh 'npm install'
+      }
     }
+  }
 }
-
-
-
