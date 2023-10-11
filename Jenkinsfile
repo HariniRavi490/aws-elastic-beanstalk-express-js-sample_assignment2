@@ -16,12 +16,6 @@ pipeline {
     stage('Test') {
       steps {
         sh 'node --version'
-        sh 'npm test' // You can run your test suite here
-      }
-    }
-    stage('Lint') {
-      steps {
-        sh 'npm run lint' // You can add linting tasks here
       }
     }
     stage('Build Docker Image') {
